@@ -3,7 +3,7 @@ package model;
 public class BankAccount {
     private int id;
     private double balance;
-    private String client;
+    private Client client;
 
 
     /**
@@ -13,10 +13,10 @@ public class BankAccount {
     {
         id = 0;
         balance = 0;
-        client = "";
+        client = new Client();
     }
 
-    public BankAccount(int id, double balance, String client) {
+    public BankAccount(int id, double balance, Client client) {
         this.id = id;
         this.balance = balance;
         this.client = client;
@@ -41,11 +41,11 @@ public class BankAccount {
         this.balance = balance;
     }
 
-    public String getClient() {
+    public Client getClient() {
         return client;
     }
 
-    public void setClient(String client) {
+    public void setClient(Client client) {
         this.client = client;
     }
 
@@ -55,11 +55,11 @@ public class BankAccount {
 
     @Override
     public String toString() {
-        return "bankAccount{" +
-                "id=" + id +
-                ", balance=" + balance +
-                ", client='" + client + '\'' +
-                "\n";
+        return "BankAccount :\n" +
+                "\tid : " + id +
+                ",\n\tbalance : " + balance +
+                ",\n\tclient : | "  + client +
+                " \n";
     }
 
     /**
@@ -68,7 +68,7 @@ public class BankAccount {
     public String deposit (double money)
     {
         balance+= money;
-        return "Great, you've successfully deposited $ "+ money+ " , and now you have $"+ balance + " in your account.";
+        return "Great,"+client.getName()+", you've successfully deposited $ "+ money+ " , and now you have $"+ balance + " in your account.";
     }
 
     /**
@@ -80,11 +80,13 @@ public class BankAccount {
         if(balance-draw >= -2000)
         {
             balance-=draw;
-            message = "Great, you've successfully extracted $ "+ draw + " , and now you have $"+ balance+ " in your account";
+            message = "Great, "+client.getName()+ " ,successfully extracted $ "+ draw + " , and now you have $"+ balance+ " in your account";
         }
         else {
             message = "Insufficient funds.";
         }
         return message;
     }
+
+
 }

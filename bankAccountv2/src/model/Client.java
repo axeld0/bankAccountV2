@@ -10,8 +10,7 @@ public class Client {
      */
 
     public Client ()
-    {
-        id = 0;
+    {id = 0;
        name = "";
        gender = "";
     }
@@ -55,10 +54,9 @@ public class Client {
 
     @Override
     public String toString() {
-        return "Client{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", gender='" + gender + '\'' +
-                "}\n";
+        return  "id : " + id +
+                ", name : " + name +
+                ", gender : " + gender  +
+                " | \n";
     }
 }
